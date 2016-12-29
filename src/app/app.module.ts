@@ -6,6 +6,8 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import {CoreModule} from './core/core.module';
 
+import {routing} from './app.routes';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -15,6 +17,7 @@ import {CoreModule} from './core/core.module';
     FormsModule,
     HttpModule,
     CoreModule,
+    routing,
   ],
   providers: [],
   bootstrap: [AppComponent]
