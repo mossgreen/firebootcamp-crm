@@ -1,11 +1,11 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-static-top">
   <div class="container">
     <div class="navbar-header">
       <a class="navbar-brand" href="/">FireBootCamp Angular - CRM</a>
     </div>
     <ul class="nav navbar-nav pull-right">
-      <li><a routerLink="company">Companies</a></li>
-      <li><a routerLink="contact">Contacts</a></li>
+      <li><a [routerLink]="['companies']">Companies</a></li>
+      <li><a [routerLink]="['contacts']">Contacts</a></li>
     </ul>
   </div>
 </nav>
