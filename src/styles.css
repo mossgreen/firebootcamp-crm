@@ -1,26 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
-.content{
-    margin-top:55px;
+.content {
+    margin-top: 55px;
 }
 
-.button-column{
-    width:150px;
+.button-column {
+    width: 150px;
 }
 
-.heading-row{
+.heading-row
+{
     padding-top:20px;
     padding-bottom:10px;
 }
 
-.heading-row h2{
-    margin:0px;
-    padding:0px;
+.heading-row h2 {
+    margin: 0px;
+    padding: 0px;
 }
 
-.ng-valid[required], .ng-valid.required{
-    border-left: 5px solid #42A948; /*green*/
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
 }
 
-.ng-invalid:not(form){
-    border-left:5px solid #a94442; /*red*/
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
 }
