@@ -7,7 +7,8 @@ import 'rxjs/add/operator/filter';
 import 'rxjs/add/observable/throw';
 
 import { API_BASE } from '../app.config';
-import { Company } from './company';
+//import { Company } from './company';
+import { Company } from './../shared/models';
 
 @Injectable()
 
