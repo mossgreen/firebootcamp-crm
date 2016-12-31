@@ -1,4 +1,4 @@
-import { ContactService } from './../../contact/contact.service';
+import { ContactService } from './../contact/contact.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CompanyService } from './../company/company.service';
 import { Component, OnInit } from '@angular/core';
@@ -7,7 +7,7 @@ import { Company, Contact } from './../shared/models';
 
 @Component({
     selector: 'fbc-company-detail',
-    templateUrl: './comany-detail.component.html',
+    templateUrl: './company-detail.component.html',
     styles: [
         `.row{padding-top:10px;}`
     ]

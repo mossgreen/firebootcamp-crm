@@ -4,27 +4,27 @@ import { CompanyService } from './../company.service';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 
+//import {CompanyListTableComponent} from './company-list-table.component';
+
 @Component({
-    template: `
+    template: `   
         <div class="row heading-row company-list-component">
-            <div class="col-sm-9>
+            <div class="col-sm-9">
                 <h2>Companies</h2>
             </div>
-
             <div class="col-sm-3">
                 <button routerLink="/company/edit/new" class="btn btn-success pull-right">Add</button>
             </div>
-       </div>
-
-       <div class="row">
-            <div class="col-sm-12>
-                <fbc-company-list-table
-                    (deleteCompanySelected)="deleteCompany($event)"
-                    [companies]="companies">
-                </fbc-company-list-table>
+        </div>
+        <div class="row">  
+            <div class="col-sm-12">   
+            <fbc-company-list-table 
+                (deleteCompanySelected)="deleteCompany($event)" 
+                [companies]="companies">
+            </fbc-company-list-table>
             </div>
-       </div>
-    `,
+        </div>  
+    `
 })
 export class CompanyListComponent implements OnInit {
     companies: Company[];
