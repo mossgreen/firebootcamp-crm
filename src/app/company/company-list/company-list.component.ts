@@ -4,7 +4,6 @@ import { CompanyService } from './../company.service';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 
-//import {CompanyListTableComponent} from './company-list-table.component';
 
 @Component({
     template: `   
