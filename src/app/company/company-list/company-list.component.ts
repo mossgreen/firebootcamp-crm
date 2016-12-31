@@ -29,20 +29,24 @@ export class CompanyListComponent implements OnInit {
     companies: Company[];
     result: any;
 
-    constructor(private _companyService: CompanyService) { }
+    constructor(
+        private companyService: CompanyService) {
+    }
 
     ngOnInit() {
-        this.getCompanies();
+        this.getcompanies();
     }
-    getCompanies() {
-        this._companyService.getCompanies()
+
+    getcompanies() {
+        this.companyService.getCompanies()
             .subscribe((companies: Company[]) => this.companies = companies);
     }
 
     deleteCompany(companyId: number) {
-        this._companyService.deleteCompany(companyId)
-            .subscribe((deletedCompay: Company) => {
-                this.companies = this.companies.filter((company: any) => company.id !== deletedCompay.id);
+        this.companyService.deleteCompany(companyId)
+            .subscribe((deletedCompany: Company) => {
+                this.companies = this.companies.filter((company: any) => company.id !== deletedCompany.id);
             });
     }
+
 }
