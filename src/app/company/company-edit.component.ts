@@ -34,54 +34,56 @@ import { CanComponentDeactivate } from './../shared/can-deactivate-guard.service
     </div>
     `
 })
-
-export class CompanyEditComponent implements OnInit, CanComponentDeactivate{
+export class CompanyEditComponent implements OnInit, CanComponentDeactivate {
     formSubmitted: boolean = false;
-    company:Company = <Company>{name:'', phone:'', email:''};
+    company: Company = <Company>{ name: '', phone: '', email: '' };
 
-    @ViewChild('companyForm') public companyForm:NgForm;
+    @ViewChild('companyForm') public companyForm: NgForm;
 
     constructor(
-        private _companyService:CompanyService,
-        private _router:Router,
-        private _activatedRoute: ActivatedRoute
-    ){}
-    ngOnInit(){
-        this._activatedRoute
-        .params
-        .filter((params:any) => params['id'] !== 'new')
-        .subscribe((params) => {
-            let id= +params['id'];
-            this.getCompany(id);
-        });
+        private companyService: CompanyService,
+        private router: Router,
+        private activatedRoute: ActivatedRoute
+    ) { }
+
+    ngOnInit() {
+        this.activatedRoute
+            .params
+            .filter((params: any) => params['id'] !== 'new')
+            .subscribe((params) => {
+                let id = +params['id'];
+                this.getCompany(id);
+            });
     }
 
-    getCompany(companyId:number){
-        this._companyService.getCompany(companyId)
-        .subscribe((company:Company) => {
-            this.company = company;
-        });
+    getCompany(companyId: number) {
+        this.companyService.getCompany(companyId)
+            .subscribe((company: Company) => {
+                this.company = company;
+            });
     }
 
-    saveCompany(){
-        let id = this._activatedRoute.snapshot.params['id'];
+    saveCompany() {
+        let id = this.activatedRoute.snapshot.params['id'];
         this.formSubmitted = true;
 
-        if(id === 'new'){
-            this._companyService.addCompany(this.company)
-            .subscribe(newCompany => {
-                this._router.navigate([`/company/details`, newCompany.id])
-            ;});
-        }else{
-            this._companyService.updateCompany(this.company)
-            .subscribe(() => this._router.navigate([`/company/detail`, this.company.id]));
+        if (id === 'new') {
+            this.companyService.addCompany(this.company)
+                .subscribe(
+                newCompany => { this.router.navigate([`/company/detail`, newCompany.id]); }
+                );
+        } else {
+            this.companyService.updateCompany(this.company)
+                .subscribe(
+                () => this.router.navigate([`/company/detail`, this.company.id])
+                );
         }
     }
 
-    canDeactivate(): Promise<boolean> | boolean{
-        if(!this.companyForm.dirty || this.formSubmitted){
+    canDeactivate(): Promise<boolean> | boolean {
+        if (!this.companyForm.dirty || this.formSubmitted) {
             return true;
         }
-        return confirm('You have unsaved chagnes, Are you sure you want to leave?');
+        return confirm('You have unsaved changes. Are you sure you want to leave?');
     }
 }
