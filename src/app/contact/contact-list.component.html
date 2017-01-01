@@ -1,0 +1,45 @@
+<div class="row heading-row contact-list-component">
+    <div class="col-sm-9">
+        <h2>Contact:{{contact?.name}}</h2>
+    </div>
+    <div class="col-sm-3">
+        <button routerLink="/contact/edit/{{contact?.id}}" class="btn btn-success pull-right">Edit</button>
+    </div>
+</div>
+
+<div class="well">
+    <div class="row">
+        <div class="col-xs-2">Phone</div>
+        <div class="col-xs-10">{{contact?.phone}}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2">Email</div>
+        <div class="col-xs-10">{{contact?.email}}</div>
+    </div>
+</div>
+
+<h3>Contacts</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of contacts">
+            <td>{{c.name}}</td>
+            <td>{{c.phone}}</td>
+            <td>{{c.email}}</td>
+            <td class="text-right">
+                <button type="button" routerLink="/contact/detail/{{c.id}}" class="btn btn-default">Detail</button>
+                <button type="button" (click)="editContact(c)" class="btn btn-default">Edit</button>
+            </td>
+        </tr>
+        <tr *ngIf="!contacts || contacts.length == 0">
+            <td colspan="3">There are no contacts for this contact</td>
+        </tr>
+    </tbody>
+</table>
