@@ -1,4 +1,5 @@
 import { ContactListComponent } from './contact-list/contact-list.component';
+import {ContactListTableComponent} from './contact-list/contact-lsit-table.component';
 import {ContactEditFormComponent} from './contact-edit-form.component';
 import {ContactDetailComponent} from './contact-detail-component';
 import { NgModule } from '@angular/core';
@@ -10,6 +11,7 @@ import { routing } from './contact.routes';
     declarations: [
         ContactListComponent,
         ContactDetailComponent,
+        ContactListTableComponent,
         ContactEditFormComponent
         ]
 })
