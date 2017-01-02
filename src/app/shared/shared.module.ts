@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-
-import {ContactListTableComponent} from './../contact/contact-list/contact-lsit-table.component';
 import {UIRowComponent} from './ui-row.component';
 
 @NgModule({
@@ -22,7 +20,6 @@ import {UIRowComponent} from './ui-row.component';
         ReactiveFormsModule,
     ],
     declarations: [
-        ContactListTableComponent,
         UIRowComponent,
     ]
 })

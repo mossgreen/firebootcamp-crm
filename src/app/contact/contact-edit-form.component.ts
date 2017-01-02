@@ -132,7 +132,7 @@ export class ContactEditFormComponent implements OnInit, OnChanges {
 
 
     buildForm(): void {
-        this.contactForm = this.fb.group({
+        this.contactForm = this._fb.group({
             'name': [this.contact.name, Validators.required],
             'companyId': [this.contact.companyId, Validators.required],
             'address': [this.contact.address],

@@ -7,7 +7,7 @@ import {ContactEditFormComponent} from './contact-edit-form.component';
 export const routing: ModuleWithProviders = RouterModule.forChild([
   { path: 'contact', redirectTo: 'contact/list', pathMatch: 'full' },
   { path: 'contact/list', component: ContactListComponent },
-  { path: 'detail/:id', component: ContactDetailComponent },
+  { path: 'contact/detail/:id', component: ContactDetailComponent },
   { path: 'edit/:id', component: ContactEditFormComponent }
 
 ]);
