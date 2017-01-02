@@ -19,6 +19,12 @@ export class ContactService {
             .catch(this.handleError);
     }
 
+    getContact(id: number): Observable<Contact> {
+        return this._http.get(API_BASE + `contact/${id}`)
+            .map((contacts: Response) => contacts.json())
+            .catch(this.handleError);
+    }
+
     getContactsForCompany(companyId: number): Observable<Contact[]> {
         return this._http.get(API_BASE + `contact/getbycompany/${companyId}`)
             .map((contacts: Response) => contacts.json())
@@ -41,7 +47,7 @@ export class ContactService {
             .catch(this.handleError);
     }
 
-        deleteContact(contactId: number): Observable<Contact> {
+    deleteContact(contactId: number): Observable<Contact> {
         return this._http.delete(API_BASE + `contact/${contactId}`)
             .map((contacts: Response) => contacts.json())
             .catch(this.handleError);
