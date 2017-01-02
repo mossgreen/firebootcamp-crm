@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {UIRowComponent} from './ui-row.component';
 
 @NgModule({
     imports: [
@@ -19,6 +20,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
         ReactiveFormsModule,
     ],
     declarations: [
+        UIRowComponent,
     ]
 })
 export class SharedModule { }
