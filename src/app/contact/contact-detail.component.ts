@@ -6,16 +6,19 @@ import { CompanyService } from './../company/company.service';
 
 @Component({
     selector:'fbc-contact-detail',
-    templateUrl:`contact-detail-component.html`,
+    templateUrl:'./contact-detail.component.html',
 
 })
 
 export class ContactDetailComponent implements OnInit{
       editMode: boolean = false;
     company: Company = <Company>{ name: '' };
+    contact:Contact = <Contact>{name:''};
     contacts: Contact[] = [];
+
     selectedContact: Contact;
     companyId: number;
+    contactId:number;
 
     constructor(
         private _companyService: CompanyService,
@@ -31,6 +34,8 @@ export class ContactDetailComponent implements OnInit{
             .subscribe((params) => {
                 this.companyId = +params['id'];
                 this.getCompany(this.companyId);
+                this.contactId = +params['id'];
+                this.getContact(this.contactId);
             });
     }
 
@@ -50,6 +55,13 @@ export class ContactDetailComponent implements OnInit{
             this.company = company;
         });
         this.loadContacts(companyId);
+    }
+
+    getContact(contactId:number){
+        this._contactService.getContact(contactId)
+        .subscribe((contact:Contact) => {
+            this.contact = contact
+        })
     }
 
     loadContacts(companyId: number){

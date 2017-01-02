@@ -1,7 +1,7 @@
 import { ModuleWithProviders } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ContactListComponent } from './contact-list/contact-list.component';
-import {ContactDetailComponent} from './contact-detail-component';
+import {ContactDetailComponent} from './contact-detail.component';
 import {ContactEditComponent} from './contact-edit.component';
 import {ContactEditFormComponent} from './contact-edit-form.component';
 
