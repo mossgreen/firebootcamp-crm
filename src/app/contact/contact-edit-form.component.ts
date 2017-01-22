@@ -84,6 +84,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
     `
 })
 
+/*The ContactEditFormComponent uses reactive forms
+Reactive forms have a few major benefits over template driven forms:
+1. Form logic is specified in the component logic making it easier to test 
+2. You can create your own custom validators. 
+    For example checking for a valid email which Angular does not supply out of the box 
+3. Being reactive forms, you can subscribe to changes on the form elements as observables
+
+*/
 export class ContactEditFormComponent implements OnInit, OnChanges {
     @Input() contact;
     @Output() onSubmit = new EventEmitter<Contact>();
@@ -91,7 +99,8 @@ export class ContactEditFormComponent implements OnInit, OnChanges {
     availableCompanies: Company[] = [];
     showAdditionalInfo: boolean;
     formSubmitted: boolean = false;
-
+//FormGroup is contactForm which we use in the HTML template on the form element
+//Each property on the FormGroup object becomes a FormControl we can listen to changes on
     contactForm: FormGroup;
 
     formErrors: any = {
@@ -130,6 +139,10 @@ export class ContactEditFormComponent implements OnInit, OnChanges {
         this.buildForm();
     }
 
+
+/**
+ * FormGroup is contactForm which we use in the HTML template on the form element
+ */
 
     buildForm(): void {
         this.contactForm = this._fb.group({
