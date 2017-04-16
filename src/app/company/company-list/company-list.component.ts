@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core'
 import { Company } from './../../shared/models'
 import { CompanyService } from './../company.service'
-import 'rxjs/add/operator/map'
-import 'rsjs/add/operator/do'
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
 
 @Component({
     template: `   
