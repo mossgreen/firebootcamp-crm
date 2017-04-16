@@ -1,5 +1,5 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { Company } from './../../shared/models/company';
+import { Company } from './../../shared/models';
 import { CompanyService } from './../company.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
