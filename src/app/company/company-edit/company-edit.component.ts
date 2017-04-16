@@ -48,6 +48,9 @@ export class CompanyEditComponent implements OnInit {
             .params
             .filter((params: any) => params['id'] !== 'new')
             .subscribe((params) => {
+                /**The plus (+params['id']) you are referring to is a standard javaScript operator that 
+                 * tells the interpreter to convert the param result from 
+                 * whatever type it is (string) into a number. */
                 let id = +params['id'];
                 this.getCompany(id);
             });
