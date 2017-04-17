@@ -1,8 +1,9 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Company } from './../../shared/models';
 import { CompanyService } from './../company.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { CanComponentDeactivate } from './../../shared/can-deactivate-guard.service';
 
 @Component({
     selector: 'fbc-company-edit',
@@ -33,9 +34,11 @@ import { NgForm } from '@angular/forms';
     </div>
     `
 })
-export class CompanyEditComponent implements OnInit {
+export class CompanyEditComponent implements OnInit, CanComponentDeactivate {
     formSubmitted: boolean = false;
     company: Company = <Company>{ name: '', phone: '', email: '' };
+
+    @ViewChild('companyForm') public companyForm: NgForm;
 
     constructor(
         private companyService: CompanyService,
@@ -48,9 +51,6 @@ export class CompanyEditComponent implements OnInit {
             .params
             .filter((params: any) => params['id'] !== 'new')
             .subscribe((params) => {
-                /**The plus (+params['id']) you are referring to is a standard javaScript operator that 
-                 * tells the interpreter to convert the param result from 
-                 * whatever type it is (string) into a number. */
                 let id = +params['id'];
                 this.getCompany(id);
             });
@@ -69,9 +69,7 @@ export class CompanyEditComponent implements OnInit {
 
         if (id === 'new') {
             this.companyService.addCompany(this.company)
-                .subscribe(
-                newCompany => { this.router.navigate([`/company/detail`, newCompany.id]); }
-                );
+                .subscribe( newCompany => { this.router.navigate([`/company/detail/`, newCompany.id]); } );
         } else {
             this.companyService.updateCompany(this.company)
                 .subscribe(
@@ -80,4 +78,10 @@ export class CompanyEditComponent implements OnInit {
         }
     }
 
+    canDeactivate(): Promise<boolean> | boolean {
+        if (!this.companyForm.dirty || this.formSubmitted) {
+            return true;
+        }
+        return confirm('You have unsaved changes. Are you sure you want to leave?');
+    }
 }

@@ -8,5 +8,5 @@ export const routing: ModuleWithProviders = RouterModule.forChild([
   { path: '', redirectTo: 'list', pathMatch: 'full' },
   { path: 'list', component: CompanyListComponent },
   { path: 'detail/:id', component: CompanyDetailComponent },
-  { path: 'edit/:id', component: CompanyEditComponent },
+  { path: 'edit/:id', component: CompanyEditComponent }
 ]);
