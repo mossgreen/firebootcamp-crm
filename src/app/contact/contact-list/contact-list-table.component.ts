@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Contact } from './../../shared/models';
 
+
 @Component({
     selector: 'fbc-contact-list-table',
     template: `

@@ -1,5 +1,6 @@
 import { ContactDetailComponent } from './contact-detail/contact-detail.component';
 import { ContactListComponent } from './contact-list/contact-list.component';
+import {ContactListTableComponent} from './../contact/contact-list/contact-list-table.component';
 import { ContactEditComponent } from './../contact/contact-edit/contact-edit.component';
 import { ContactEditFormComponent } from './../contact/contact-edit/contact-edit-form.component'
 
@@ -15,6 +16,7 @@ import { routing } from './contact.routes';
     ],
     declarations: [
         ContactListComponent,
+        ContactListTableComponent,
         ContactDetailComponent,
         ContactEditComponent,
         ContactEditFormComponent

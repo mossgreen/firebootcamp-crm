@@ -1,7 +1,7 @@
 import { ActivatedRoute } from '@angular/router';
 import { ContactService } from './../contact.service';
 import { Component, OnInit } from '@angular/core';
-import { Contact } from './../../shared/models/contact.model';
+import { Contact } from './../../shared/models';
 
 @Component({
     selector: 'fbc-contact-detail',
