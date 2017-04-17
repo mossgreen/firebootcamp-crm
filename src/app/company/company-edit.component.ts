@@ -1,9 +1,9 @@
-import { ActivatedRoute, Router } from '@angular/router';
-import { Company } from './../../shared/models';
-import { CompanyService } from './../company.service';
-import { Component, OnInit,ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { CanComponentDeactivate } from './../../shared/can-deactivate-guard.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Company} from './../shared/models';
+import {CompanyService} from './company.service';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {NgForm} from '@angular/forms';
+import { CanComponentDeactivate } from './../shared/can-deactivate-guard.service';
 
 @Component({
     selector: 'fbc-company-edit',
@@ -69,7 +69,9 @@ export class CompanyEditComponent implements OnInit, CanComponentDeactivate {
 
         if (id === 'new') {
             this.companyService.addCompany(this.company)
-                .subscribe( newCompany => { this.router.navigate([`/company/detail/`, newCompany.id]); } );
+                .subscribe(
+                newCompany => { this.router.navigate([`/company/detail`, newCompany.id]); }
+                );
         } else {
             this.companyService.updateCompany(this.company)
                 .subscribe(

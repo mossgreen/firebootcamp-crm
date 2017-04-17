@@ -1,7 +1,7 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { Contact } from './../../shared/models';
-import { ContactService } from './../contact.service';
+import { Contact } from './../shared/models';
+import { ContactService } from './contact.service';
 
 @Component({
     selector: 'fbc-contact-edit',

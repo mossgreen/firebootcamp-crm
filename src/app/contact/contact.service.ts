@@ -7,16 +7,15 @@ import 'rxjs/add/operator/filter';
 import 'rxjs/add/observable/throw';
 
 import { Contact } from './../shared/models';
-import { API_BASE } from '../app.config';
+import { API_BASE } from './../app.config';
 
 @Injectable()
-export class ContactService {
 
+export class ContactService {
     constructor(private _http: Http) { }
 
     getContacts(): Observable<Contact[]> {
-        return this._http.get(API_BASE + `contact`)
-            .map((contacts: Response) => contacts.json())
+        return this._http.get(API_BASE + 'contact').map((contacts: Response) => contacts.json())
             .catch(this.handleError);
     }
 
@@ -36,9 +35,9 @@ export class ContactService {
         let contactJson = JSON.stringify(contact);
 
         if (contact.id) {
-            // Update using PUT
+            //update using PUT
             return this._http.put(API_BASE + `contact/${contact.id}`, contactJson, this.jsonHeaderOptions())
-                .map(response => response.json())
+                .map(Response => Response.json())
                 .catch(this.handleError);
         }
 
@@ -54,9 +53,10 @@ export class ContactService {
             .catch(this.handleError);
     }
 
+
     private handleError(error: any) {
-        let errMsg = (error.message) ? error.message :
-            error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+        let errMsg = (error.mesage) ? error.mesage :
+            error.status ? `${error.status} - ${error.statusText}` : `Server error`;
         console.error(errMsg);
         return Observable.throw(errMsg);
     }

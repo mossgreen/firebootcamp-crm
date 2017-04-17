@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core'
-import { Company } from './../../shared/models'
-import { CompanyService } from './../company.service'
+import { Component, OnInit } from '@angular/core';
+import { Company } from './../../shared/models';
+import { CompanyService } from './../company.service';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
+
 
 @Component({
     template: `   
@@ -16,44 +17,36 @@ import 'rxjs/add/operator/do';
         </div>
         <div class="row">  
             <div class="col-sm-12">   
-                <fbc-company-list-table 
-                    (deleteCompanySelected)="deleteCompany($event)" 
-                    [companiesFormTable]="companiesToTable">
-                </fbc-company-list-table>
+            <fbc-company-list-table 
+                (deleteCompanySelected)="deleteCompany($event)" 
+                [companies]="companies">
+            </fbc-company-list-table>
             </div>
         </div>  
     `
 })
-
-//this page lists all the companies
-export class CompanyListComponent implements OnInit{
-
-    /**this componnet holds a company list to display on the page
-     * and a result, which stands for the user input, like detais, edit or delete
-     */
-    companiesToTable: Company[];
-    result:any;
+export class CompanyListComponent implements OnInit {
+    companies: Company[];
+    result: any;
 
     constructor(
-        private companyService:CompanyService
-    ){}
-
-// call getCompanies() method when initializing
-    ngOnInit(){
-        this.getCompanies();
+        private companyService: CompanyService) {
     }
 
-//make the service to call getCompanies, and make companies array filled with callback data
-    getCompanies(){
+    ngOnInit() {
+        this.getcompanies();
+    }
+
+    getcompanies() {
         this.companyService.getCompanies()
-        .subscribe((companies:Company[])=> this.companiesToTable = companies);
+            .subscribe((companies: Company[]) => this.companies = companies);
     }
 
     deleteCompany(companyId: number) {
         this.companyService.deleteCompany(companyId)
             .subscribe((deletedCompany: Company) => {
-                this.companiesToTable = this.companiesToTable.filter((
-                    company: any) => company.id !== deletedCompany.id);
+                this.companies = this.companies.filter((company: any) => company.id !== deletedCompany.id);
             });
     }
+
 }

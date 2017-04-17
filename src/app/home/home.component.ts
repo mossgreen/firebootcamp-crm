@@ -1,10 +1,10 @@
-import { Component } from '@angular/core'
+import { Component } from '@angular/core';
 
 @Component({
-    template:
-    `
-        <h1>Welcome to the Moss CRM App</h1>
+    template: `
+    <div class="row">
+     <h1>Welcome to the FireBootCamp CRM App</h1>
+     </div>
     `
 })
-
-export class HomeComponent{}
+export class HomeComponent { }

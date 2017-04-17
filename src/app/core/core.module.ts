@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core'
-import { CompanyService } from '../company/company.service';
-import { ContactService } from '../contact/contact.service';
+import { NgModule } from '@angular/core';
+import {CompanyService} from '../company/company.service';
+import {ContactService} from '../contact/contact.service';
 
 /**
  * Each time the Shared module is instantiated within a lazy-loaded component a new instance of it's services is created. 
@@ -10,17 +10,14 @@ import { ContactService } from '../contact/contact.service';
  * 
  * the sole purpose id to declare application wide singleton services
  */
-
 @NgModule({
     imports: [],
     exports: [],
     declarations: [],
     providers: [
-        //services that we want to declare globally will go here
-        CompanyService,
-        ContactService
-
+      //services that we want to declare globally will go here
+      CompanyService,
+      ContactService
     ],
 })
-
-export class CoreModule { }
+export class CoreModule {}

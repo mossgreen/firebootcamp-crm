@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from './../../shared/models';
 import { ContactService } from './../contact.service';
+import {ContactListTableComponent} from './contact-list-table.component';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
+
+
 
 @Component({
     template: `   
@@ -33,10 +36,10 @@ export class ContactListComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.getcontacts();
+        this.getContacts();
     }
 
-    getcontacts() {
+    getContacts() {
         this.contactService.getContacts()
             .subscribe((contacts: Contact[]) => this.contacts = contacts);
     }

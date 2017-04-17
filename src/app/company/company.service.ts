@@ -7,15 +7,11 @@ import 'rxjs/add/operator/filter';
 import 'rxjs/add/observable/throw';
 
 import { API_BASE } from '../app.config';
+//import { Company } from './company';
 import { Company } from './../shared/models';
 
-/** i think this is a DI parttern, since it's an Injectable
- * It calls http to call api, to call CRUD
- * After, we should add this service to company module
- * However, we import company and contact service from core.module, 
- * so we will add this service to core.module.ts
-*/
 @Injectable()
+
 export class CompanyService {
     constructor(private _http: Http) { }
     getCompanies(): Observable<Company[]> {
